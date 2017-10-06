@@ -110,6 +110,8 @@
         float: right;
         height: 50px;
         width: 50px;
+        margin-top: 6px;
+        margin-right: 18px;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;

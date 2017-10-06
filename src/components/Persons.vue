@@ -1,25 +1,27 @@
 <template>
     <div class="persons">
-        <div id="mast" class="bb b--black-10">
-            <h2>People's list</h2>
+        <div id="mast" class="f3 b bb b--black-10">
+            <h2 class="ttc">People's List</h2>
         </div>
         <div id="content">
             <draggable :list="persons" class="dragArea list pl0 mt0">
                 <li v-for="person in persons" class="list-item pa2 ba b--black-10">
-                    <avatar class="avatar" v-bind:username="person.name"></avatar>
-                    <div class="pl3">
-                        <div class="f5 pt2 pb2">
-                            <span>{{person.name}}</span>
-                        </div>
-                        <div class="f6 pt2 pb2 gray">
-                            <div v-if="person.org_name">
-                                <span class="hasIcon">{{person.org_name}}</span>
+                    <a href="">
+                        <avatar v-bind:username="person.name"></avatar>
+                        <div class="pl3">
+                            <div class="f5 pt2 pb2">
+                                <span>{{person.name}}</span>
                             </div>
-                            <div v-else>
-                                <span>No organization defined</span>
+                            <div class="f6 pt2 pb2 gray">
+                                <div v-if="person.org_name">
+                                    <span class="hasIcon org">{{person.org_name}}</span>
+                                </div>
+                                <div v-else>
+                                    <span>No organization defined</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </li>
             </draggable>
         </div>
@@ -84,10 +86,9 @@
 
     .hasIcon::after {
         background-image: url("./../assets/application_icons.png");
-        background-position: -16px 0px;
         background-repeat: no-repeat;
         background-size: auto 396px;
-        color: rgb(38, 41, 44);
+        /*color: rgb(38, 41, 44);*/
         content: " ";
         height: 16px;
         left: 0;
@@ -95,5 +96,8 @@
         top: 8px;
         visibility: visible;
         width: 16px;
+    }
+    .hasIcon.org::after {
+        background-position: -16px 0px;
     }
 </style>
