@@ -1,7 +1,8 @@
 <template>
     <div id="app">
-        <div id="header">Pipedrive</div>
-        <img src="./assets/logo.png">
+        <div id="header">
+            <div id="logo"></div>
+        </div>
         <router-view></router-view>
     </div>
 </template>
@@ -13,7 +14,17 @@
 </script>
 
 <style lang="stylus">
-    @import 'https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'
+    @import 'https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css';
+    @import 'https://unpkg.com/tachyons@4.8.1/css/tachyons.min.css';
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+    #logo {
+        height: 48px;
+        width: 122px;
+        background-image: url( 'assets/logo.svg' );
+        background-position: 12px 12px;
+        background-repeat: no-repeat;
+    }
 
     #app {
         font-family: 'Open Sans', Arial, sans-serif;
@@ -21,12 +32,11 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
-        margin-top: 60px;
     }
 
     #header {
-        background-color: rgb(38, 41, 44);
-        height: 80px;
+        background-color: rgb(64, 67, 70);
+        height: 48px;
         width: 100%;
     }
 </style>

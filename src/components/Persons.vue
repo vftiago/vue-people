@@ -1,14 +1,33 @@
 <template>
     <div class="persons">
-        <p>PEOPLE</p>
-        <div v-for="person in persons">
-            <p>{{person.name}}</p>
+        <div id="mast" class="bb b--black-10">
+            <h2>People's list</h2>
+        </div>
+        <div id="content">
+            <draggable :list="persons" class="dragArea list pl0 mt0">
+                <li v-for="person in persons" class="list-item pa2 ba b--black-10">
+                    <div class="pl3">
+                        <div class="f5 pt2 pb2">
+                            <span>{{person.name}}</span>
+                        </div>
+                        <div class="f6 pt2 pb2 gray">
+                            <div v-if="person.org_name">
+                                <span class="hasIcon">{{person.org_name}}</span>
+                            </div>
+                            <div v-else>
+                                <span>No organization defined</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </draggable>
         </div>
     </div>
 </template>
 
 <script>
 	import Persons from '@/api/persons';
+	import draggable from 'vuedraggable';
 
 	export default {
 		name: 'persons',
@@ -18,29 +37,60 @@
 					const persons = await Persons.getAll();
 					return persons.data;
 				},
-				default: 'Loading...'
+				default: []
 			}
+		},
+		components: {
+			draggable
 		}
 	}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    h1, h2 {
-        font-weight: normal;
+
+    #content {
+        text-align: left;
     }
 
-    ul {
-        list-style-type: none;
-        padding: 0;
+    #mast {
+        padding: 30px 20px;
     }
 
-    li {
-        display: inline-block;
-        margin: 0 10px;
+    .dragArea{
+        min-height: 10px;
+    }
+
+    .list-item {
+        margin:12px 15px;
     }
 
     a {
         color: #42b983;
+    }
+
+    .hasIcon {
+        padding: 8px 0 0 23px;
+        position: relative;
+        vertical-align: baseline;
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+    }
+
+    .hasIcon::after {
+        background-image: url("./../assets/application_icons.png");
+        background-position: -16px 0px;
+        background-repeat: no-repeat;
+        background-size: auto 396px;
+        color: rgb(38, 41, 44);
+        content: " ";
+        height: 16px;
+        left: 0;
+        position: absolute;
+        top: 8px;
+        visibility: visible;
+        width: 16px;
     }
 </style>
