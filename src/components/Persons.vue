@@ -6,6 +6,7 @@
         <div id="content">
             <draggable :list="persons" class="dragArea list pl0 mt0">
                 <li v-for="person in persons" class="list-item pa2 ba b--black-10">
+                    <avatar class="avatar" v-bind:username="person.name"></avatar>
                     <div class="pl3">
                         <div class="f5 pt2 pb2">
                             <span>{{person.name}}</span>
@@ -26,8 +27,9 @@
 </template>
 
 <script>
+	import Draggable from 'vuedraggable';
+	import Avatar from './Avatar.vue';
 	import Persons from '@/api/persons';
-	import draggable from 'vuedraggable';
 
 	export default {
 		name: 'persons',
@@ -41,7 +43,8 @@
 			}
 		},
 		components: {
-			draggable
+			Avatar,
+			Draggable
 		}
 	}
 </script>

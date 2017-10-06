@@ -1,0 +1,119 @@
+<template>
+    <div><div class="avatar" v-bind:style="style">
+        <span v-if="!this.src">{{ userInitial }}</span>
+    </div></div>
+</template>
+
+<script type="text/babel">
+	export default {
+
+		props: {
+			username: {
+				type: String,
+				required: true
+			},
+			initials: {
+				type: String
+			},
+			backgroundColor: {
+				type: String
+			},
+			color: {
+				type: String
+			},
+			size: {
+				type: Number,
+				default: 50
+			},
+			src: {
+				type: String
+			},
+			rounded: {
+				type: Boolean,
+				default: true
+			},
+			lighten: {
+				type: Number,
+				default: 80
+			}
+		},
+
+		data () {},
+
+		mounted () {
+			this.$emit('avatar-initials', this.username, this.userInitial)
+		},
+
+		computed: {
+
+			isImage () {
+				return this.src !== undefined
+			},
+
+			style () {
+				const style = {
+					width: this.size + 'px',
+					height: this.size + 'px',
+    				textAlign: 'center',
+					verticalAlign: 'middle'
+				}
+
+				const imgBackgroundAndFontStyle = {
+					background: 'url(' + this.src + ') no-repeat',
+					backgroundSize: this.size + 'px ' + this.size + 'px',
+					backgroundOrigin: 'content-box'
+				}
+
+				const initialBackgroundAndFontStyle = {
+					font: Math.floor(this.size / 2.5) + 'px/100px Open Sans, Arial, sans-serif',
+					lineHeight: (this.size + Math.floor(this.size / 20)) + 'px'
+				}
+
+				const backgroundAndFontStyle = (this.isImage)
+					? imgBackgroundAndFontStyle
+					: initialBackgroundAndFontStyle
+
+				Object.assign(style, backgroundAndFontStyle)
+
+				return style
+			},
+
+			userInitial () {
+				const initials = this.initials || this.initial(this.username)
+				return initials
+			}
+		},
+
+		methods: {
+			initial (username) {
+				let parts = username.split(/[ -]/)
+				let initials = ''
+
+				for (var i = 0; i < parts.length; i++) {
+					initials += parts[i].charAt(0)
+				}
+
+				if (initials.length > 3 && initials.search(/[A-Z]/) !== -1) {
+					initials = initials.replace(/[a-z]+/g, '')
+				}
+
+				initials = initials.substr(0, 3).toUpperCase()
+
+				return initials
+			}
+		}
+	}
+</script>
+
+<style scoped>
+    .avatar {
+        float: right;
+        height: 50px;
+        width: 50px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        color: dodgerblue;
+        background-color: lightskyblue;
+    }
+</style>
