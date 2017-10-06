@@ -1,12 +1,14 @@
 <template>
-    <div><div class="avatar" v-bind:style="style">
-        <span v-if="!this.src">{{ userInitial }}</span>
-    </div></div>
+    <div>
+        <div class="avatar" v-bind:style="style">
+            <span v-if="!this.src">{{ userInitial }}</span>
+        </div>
+    </div>
 </template>
 
 <script type="text/babel">
 	export default {
-
+		name: 'avatar',
 		props: {
 			username: {
 				type: String,
@@ -38,68 +40,55 @@
 			}
 		},
 
-		data () {},
-
-		mounted () {
-			this.$emit('avatar-initials', this.username, this.userInitial)
-		},
-
 		computed: {
-
-			isImage () {
-				return this.src !== undefined
+			isImage() {
+				return this.src !== undefined;
 			},
-
-			style () {
+			style() {
 				const style = {
-					width: this.size + 'px',
-					height: this.size + 'px',
-    				textAlign: 'center',
+					textAlign: 'center',
 					verticalAlign: 'middle'
-				}
+				};
 
 				const imgBackgroundAndFontStyle = {
 					background: 'url(' + this.src + ') no-repeat',
-					backgroundSize: this.size + 'px ' + this.size + 'px',
 					backgroundOrigin: 'content-box'
-				}
+				};
 
 				const initialBackgroundAndFontStyle = {
-					font: Math.floor(this.size / 2.5) + 'px/100px Open Sans, Arial, sans-serif',
-					lineHeight: (this.size + Math.floor(this.size / 20)) + 'px'
-				}
+					font: Math.floor( this.size / 2.5 ) + 'px/100px Open Sans, Arial, sans-serif',
+					lineHeight: (this.size + Math.floor( this.size / 20 )) + 'px'
+				};
 
 				const backgroundAndFontStyle = (this.isImage)
 					? imgBackgroundAndFontStyle
 					: initialBackgroundAndFontStyle
 
-				Object.assign(style, backgroundAndFontStyle)
+				Object.assign( style, backgroundAndFontStyle )
 
 				return style
 			},
-
-			userInitial () {
-				const initials = this.initials || this.initial(this.username)
+			userInitial() {
+				const initials = this.initials || this.getInitials( this.username )
 				return initials
 			}
 		},
-
 		methods: {
-			initial (username) {
-				let parts = username.split(/[ -]/)
-				let initials = ''
+			getInitials ( username ) {
+				let parts = username.split( /[ -]/ )
+				let initials = '';
 
-				for (var i = 0; i < parts.length; i++) {
-					initials += parts[i].charAt(0)
+				for ( var i = 0; i < parts.length; i++ ) {
+					initials += parts[ i ].charAt( 0 )
 				}
 
-				if (initials.length > 3 && initials.search(/[A-Z]/) !== -1) {
-					initials = initials.replace(/[a-z]+/g, '')
+				if ( initials.length > 3 && initials.search( /[A-Z]/ ) !== -1 ) {
+					initials = initials.replace( /[a-z]+/g, '' )
 				}
 
-				initials = initials.substr(0, 3).toUpperCase()
+				initials = initials.substr( 0, 3 ).toUpperCase();
 
-				return initials
+				return initials;
 			}
 		}
 	}
