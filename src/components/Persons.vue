@@ -4,9 +4,10 @@
             <h2 class="ttc">People's List</h2>
         </div>
         <div id="content">
+            <person-modal></person-modal>
             <draggable :list="persons" class="dragArea list pl0 mt0">
                 <li v-for="person in persons" class="list-item pa2 ba b--black-10">
-                    <a href="">
+                    <a v-on:click="showModal( person )">
                         <avatar v-bind:username="person.name"></avatar>
                         <div class="pl3">
                             <div class="f5 pt2 pb2">
@@ -31,6 +32,7 @@
 <script>
 	import Draggable from 'vuedraggable';
 	import Avatar from './Avatar.vue';
+	import PersonModal from './PersonModal.vue';
 	import Persons from '@/api/persons';
 
 	export default {
@@ -44,9 +46,15 @@
 				default: []
 			}
 		},
+		methods: {
+			showModal( person ) {
+				this.$modal.show('person-modal', { person: person } );
+			}
+		},
 		components: {
 			Avatar,
-			Draggable
+			Draggable,
+            PersonModal
 		}
 	}
 </script>

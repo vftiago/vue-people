@@ -5,8 +5,10 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import VueAsyncComputed from 'vue-async-computed';
+import VModal from 'vue-js-modal';
 
 Vue.use( VueAsyncComputed );
+Vue.use( VModal );
 
 Vue.config.productionTip = false;
 

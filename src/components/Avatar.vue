@@ -1,8 +1,6 @@
 <template>
-    <div>
-        <div class="avatar" v-bind:style="style">
-            <span v-if="!this.src">{{ userInitial }}</span>
-        </div>
+    <div class="avatar" v-bind:style="style">
+        <span v-if="!this.src">{{ userInitial }}</span>
     </div>
 </template>
 
