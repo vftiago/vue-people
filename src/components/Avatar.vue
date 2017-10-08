@@ -57,7 +57,7 @@
 
 				const initialBackgroundAndFontStyle = {
 					font: Math.floor( this.size / 2.5 ) + 'px/100px Open Sans, Arial, sans-serif',
-					lineHeight: (this.size) + 'px'
+					lineHeight: ( this.size ) + 'px'
 				};
 
 				const backgroundAndFontStyle = (this.isImage)
@@ -94,15 +94,14 @@
 	}
 </script>
 
-<style scoped>
-    .avatar {
-        float: right;
-        margin-top: 6px;
-        margin-right: 18px;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
-        color: dodgerblue;
-        background-color: lightskyblue;
-    }
+<style scoped lang="stylus">
+    .avatar
+        display: block
+        margin-top: 6px
+        margin-right: 18px
+        -webkit-border-radius: 50%
+        -moz-border-radius: 50%
+        border-radius: 50%
+        color: dodgerblue
+        background-color: lightskyblue
 </style>

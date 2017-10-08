@@ -8,7 +8,7 @@
             <draggable :list="persons" class="dragArea list pl0 mt0">
                 <li v-for="person in persons" class="list-item pa2 ba b--black-10">
                     <a v-on:click="showModal( person )">
-                        <avatar  :size="50" v-bind:username="person.name"></avatar>
+                        <avatar :size="50" v-bind:username="person.name"></avatar>
                         <div class="pl3">
                             <div class="f5 pt2 pb2">
                                 <span>{{person.name}}</span>
@@ -59,40 +59,31 @@
 	}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="stylus">
+    #content
+        text-align: left
 
-    #content {
-        text-align: left;
-    }
+    #mast
+        padding: 30px 20px
 
-    #mast {
-        padding: 30px 20px;
-    }
+    .dragArea
+        min-height: 10px
 
-    .dragArea{
-        min-height: 10px;
-    }
+    .list-item
+        margin: 12px 15px
+        .avatar
+            float: right
 
-    .list-item {
-        margin:12px 15px;
-    }
+    .hasIcon
+        padding: 8px 0 0 23px
+        position: relative
+        vertical-align: baseline
+        -moz-border-bottom-colors: none
+        -moz-border-left-colors: none
+        -moz-border-right-colors: none
+        -moz-border-top-colors: none
 
-    a {
-        color: #42b983;
-    }
-
-    .hasIcon {
-        padding: 8px 0 0 23px;
-        position: relative;
-        vertical-align: baseline;
-        -moz-border-bottom-colors: none;
-        -moz-border-left-colors: none;
-        -moz-border-right-colors: none;
-        -moz-border-top-colors: none;
-    }
-
-    .hasIcon::after {
+    .hasIcon::after
         background-image: url("./../assets/application_icons.png");
         background-repeat: no-repeat;
         background-size: auto 396px;
@@ -104,8 +95,7 @@
         top: 8px;
         visibility: visible;
         width: 16px;
-    }
-    .hasIcon.org::after {
-        background-position: -16px 0px;
-    }
+
+    .hasIcon.org::after
+        background-position: -16px 0px
 </style>
