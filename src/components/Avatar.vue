@@ -44,6 +44,8 @@
 			},
 			style() {
 				const style = {
+					width: this.size + 'px',
+					height: this.size + 'px',
 					textAlign: 'center',
 					verticalAlign: 'middle'
 				};
@@ -55,25 +57,25 @@
 
 				const initialBackgroundAndFontStyle = {
 					font: Math.floor( this.size / 2.5 ) + 'px/100px Open Sans, Arial, sans-serif',
-					lineHeight: (this.size + Math.floor( this.size / 20 )) + 'px'
+					lineHeight: (this.size) + 'px'
 				};
 
 				const backgroundAndFontStyle = (this.isImage)
 					? imgBackgroundAndFontStyle
-					: initialBackgroundAndFontStyle
+					: initialBackgroundAndFontStyle;
 
-				Object.assign( style, backgroundAndFontStyle )
+				Object.assign( style, backgroundAndFontStyle );
 
 				return style
 			},
 			userInitial() {
-				const initials = this.initials || this.getInitials( this.username )
+				const initials = this.initials || this.getInitials( this.username );
 				return initials
 			}
 		},
 		methods: {
 			getInitials ( username ) {
-				let parts = username.split( /[ -]/ )
+				let parts = username.split( /[ -]/ );
 				let initials = '';
 
 				for ( var i = 0; i < parts.length; i++ ) {
@@ -95,8 +97,6 @@
 <style scoped>
     .avatar {
         float: right;
-        height: 50px;
-        width: 50px;
         margin-top: 6px;
         margin-right: 18px;
         -webkit-border-radius: 50%;

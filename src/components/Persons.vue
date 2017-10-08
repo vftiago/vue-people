@@ -8,7 +8,7 @@
             <draggable :list="persons" class="dragArea list pl0 mt0">
                 <li v-for="person in persons" class="list-item pa2 ba b--black-10">
                     <a v-on:click="showModal( person )">
-                        <avatar v-bind:username="person.name"></avatar>
+                        <avatar  :size="50" v-bind:username="person.name"></avatar>
                         <div class="pl3">
                             <div class="f5 pt2 pb2">
                                 <span>{{person.name}}</span>
