@@ -48,7 +48,7 @@
 		},
 		methods: {
 			showModal( person ) {
-				this.$modal.show('person-modal', { person: person } );
+				this.$modal.show( 'person-modal', { person: person } );
 			}
 		},
 		components: {
@@ -84,7 +84,7 @@
         -moz-border-top-colors none
 
     .hasIcon::after
-        background-image url("./../assets/application_icons.png")
+        background-image url( "./../assets/application_icons.png" )
         background-repeat no-repeat
         background-size auto 396px
         content " "

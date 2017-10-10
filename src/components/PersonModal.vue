@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div id="modal-footer" class="b pa3 bt b--black-10">
-                <button class="b ba pa1 pl3 pr3 b--black-10">Back</button>
+                <button @click="$modal.hide('person-modal')" class="b ba pa1 pl3 pr3 b--black-10">Back</button>
             </div>
         </div>
     </modal>

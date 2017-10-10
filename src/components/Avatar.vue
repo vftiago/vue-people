@@ -44,7 +44,7 @@
 					lineHeight: ( this.size ) + 'px'
 				};
 
-				const backgroundAndFontStyle = (this.isImage)
+				const backgroundAndFontStyle = ( this.isImage )
 					? imgBackgroundAndFontStyle
 					: initialBackgroundAndFontStyle;
 
