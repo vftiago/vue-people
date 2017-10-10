@@ -89,17 +89,17 @@
             text-align left
 
     #modal-content
-        height: 100%
+        height 100%
 
     #modal-header
-        background-color: #eee
+        background-color #eee
 
     #modal-footer
-        background-color: #eee
-        border-radius: 0
-        bottom:0px
-        position:absolute
-        width:100%
+        background-color #eee
+        border-radius 0
+        bottom 0px
+        position absolute
+        width 100%
         button
-            float: right
+            float right
 </style>

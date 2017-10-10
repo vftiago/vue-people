@@ -61,41 +61,40 @@
 
 <style scoped lang="stylus">
     #content
-        text-align: left
+        text-align left
 
     #mast
-        padding: 30px 20px
+        padding 30px 20px
 
     .dragArea
-        min-height: 10px
+        min-height 10px
 
     .list-item
-        margin: 12px 15px
+        margin 12px 15px
         .avatar
-            float: right
+            float right
 
     .hasIcon
-        padding: 8px 0 0 23px
-        position: relative
-        vertical-align: baseline
-        -moz-border-bottom-colors: none
-        -moz-border-left-colors: none
-        -moz-border-right-colors: none
-        -moz-border-top-colors: none
+        padding 8px 0 0 23px
+        position relative
+        vertical-align baseline
+        -moz-border-bottom-colors none
+        -moz-border-left-colors none
+        -moz-border-right-colors none
+        -moz-border-top-colors none
 
     .hasIcon::after
-        background-image: url("./../assets/application_icons.png");
-        background-repeat: no-repeat;
-        background-size: auto 396px;
-        /*color: rgb(38, 41, 44);*/
-        content: " ";
-        height: 16px;
-        left: 0;
-        position: absolute;
-        top: 8px;
-        visibility: visible;
-        width: 16px;
+        background-image url("./../assets/application_icons.png")
+        background-repeat no-repeat
+        background-size auto 396px
+        content " "
+        height 16px
+        left 0
+        position absolute
+        top 8px
+        visibility visible
+        width 16px
 
     .hasIcon.org::after
-        background-position: -16px 0px
+        background-position -16px 0px
 </style>
