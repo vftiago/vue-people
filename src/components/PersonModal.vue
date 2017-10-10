@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div id="modal-footer" class="b pa3 bt b--black-10">
-                <button @click="$modal.hide('person-modal')" class="b ba pa1 pl3 pr3 b--black-10">Back</button>
+                <button @click="$modal.hide('person-modal')" class="b ba pa1 ph3 b--black-20">Back</button>
             </div>
         </div>
     </modal>
@@ -77,6 +77,8 @@
 <style lang="stylus" scoped>
     a
         color #42b983
+    button
+        background-color #fefefe
 
     #modal-body
         #mast
@@ -92,10 +94,10 @@
         height 100%
 
     #modal-header
-        background-color #eee
+        background-color #efefef
 
     #modal-footer
-        background-color #eee
+        background-color #efefef
         border-radius 0
         bottom 0px
         position absolute
