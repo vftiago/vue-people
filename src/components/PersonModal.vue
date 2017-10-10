@@ -11,6 +11,32 @@
                     <a v-if="person.phone" class="f4">{{person.phone[ 0 ].value}}</a>
                     <hr class="mt4 b--black-10"/>
                 </div>
+                <div id="content" class="ph4 w-100 b--black-20">
+                    <div v-if="person.email.value" class="">
+                        <div class="fl w-30 tr">
+                            <div class="b pv2 b--black-20">Email</div>
+                        </div>
+                        <div class="fl w-70">
+                            <div class="pv2 pl3 gray">{{person.email.value}}</div>
+                        </div>
+                    </div>
+                    <div v-if="person.org_name" class="">
+                        <div class="fl w-30 tr">
+                            <div class="b pv2 b--black-20">Organization</div>
+                        </div>
+                        <div class="fl w-70">
+                            <div class="pv2 pl3 gray">{{person.org_name}}</div>
+                        </div>
+                    </div>
+                    <div v-if="person.owner_name" class="">
+                        <div class="fl w-30 tr">
+                            <div class="b pv2 b--black-20">Assistant</div>
+                        </div>
+                        <div class="fl w-70">
+                            <div class="pv2 pl3 gray">{{person.owner_name}}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="modal-footer" class="b pa3 bt b--black-10">
                 <button class="b ba pa1 pl3 pr3 b--black-10">Back</button>
@@ -26,9 +52,14 @@
 		name: 'person-modal',
 		data () {
 			return {
-				height: 'auto',
+				height: '600px',
 				person: {
-					name: ''
+					name: '',
+                    email: {
+						value: ''
+                    },
+					org_name: '',
+					owner_name: ''
                 }
 			}
 		},
@@ -45,14 +76,17 @@
 
 <style lang="stylus" scoped>
     a
-        color: #42b983
+        color #42b983
 
     #modal-body
-        text-align: center
+        #mast
+            text-align center
         .avatar
-            margin: 0 auto
-            height: 60px
-            width: 60px
+            margin 0 auto
+            height 60px
+            width 60px
+        #content
+            text-align left
 
     #modal-content
         height: 100%
