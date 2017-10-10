@@ -1,10 +1,10 @@
 <template>
     <div class="persons">
+        <person-modal></person-modal>
         <div id="mast" class="f3 b bb b--black-10">
             <h2 class="ttc">People's List</h2>
         </div>
         <div id="content">
-            <person-modal></person-modal>
             <draggable :list="persons" class="dragArea list pl0 mt0">
                 <li v-for="person in persons" class="list-item pa2 ba b--black-10">
                     <a v-on:click="showModal( person )">

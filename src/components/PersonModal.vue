@@ -1,5 +1,5 @@
 <template>
-    <modal name="person-modal" id="person-modal" :resizeable=true :height="600" :width="500" v-on:before-open="beforeOpen">
+    <modal name="person-modal" :height="height" :width="500" v-on:before-open="beforeOpen">
         <div id="modal-content">
             <div id="modal-header" class="pa3 bb b--black-10">
                 <h4 class="f4 b ">Person Information</h4>
@@ -26,6 +26,7 @@
 		name: 'person-modal',
 		data () {
 			return {
+				height: 'auto',
 				person: {
 					name: ''
                 }
@@ -42,36 +43,29 @@
 	}
 </script>
 
-<style scoped lang="stylus">
-    a {
-        color: #42b983;
-    }
+<style lang="stylus" scoped>
+    a
+        color: #42b983
 
-    #modal-body {
+    #modal-body
         text-align: center
-        .avatar {
+        .avatar
             margin: 0 auto
             height: 60px
             width: 60px
-        }
-    }
 
-    #modal-content {
-        height: 100%;
-    }
+    #modal-content
+        height: 100%
 
-    #modal-header {
-        background-color: #eee;
-    }
+    #modal-header
+        background-color: #eee
 
-    #modal-footer {
-        background-color: #eee;
-        border-radius: 0;
-        bottom:0px;
-        position:absolute;
-        width:100%;
-        button {
+    #modal-footer
+        background-color: #eee
+        border-radius: 0
+        bottom:0px
+        position:absolute
+        width:100%
+        button
             float: right
-        }
-    }
 </style>

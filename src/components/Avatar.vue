@@ -1,6 +1,6 @@
 <template>
     <div class="avatar" v-bind:style="style">
-        <span v-if="!this.src">{{ userInitial }}</span>
+        <span v-if="!this.src">{{ userInitials }}</span>
     </div>
 </template>
 
@@ -15,26 +15,12 @@
 			initials: {
 				type: String
 			},
-			backgroundColor: {
-				type: String
-			},
-			color: {
-				type: String
-			},
 			size: {
 				type: Number,
 				default: 50
 			},
 			src: {
 				type: String
-			},
-			rounded: {
-				type: Boolean,
-				default: true
-			},
-			lighten: {
-				type: Number,
-				default: 80
 			}
 		},
 
@@ -45,9 +31,7 @@
 			style() {
 				const style = {
 					width: this.size + 'px',
-					height: this.size + 'px',
-					textAlign: 'center',
-					verticalAlign: 'middle'
+					height: this.size + 'px'
 				};
 
 				const imgBackgroundAndFontStyle = {
@@ -68,7 +52,7 @@
 
 				return style
 			},
-			userInitial() {
+			userInitials() {
 				const initials = this.initials || this.getInitials( this.username );
 				return initials
 			}
@@ -96,12 +80,14 @@
 
 <style scoped lang="stylus">
     .avatar
-        display: block
-        margin-top: 6px
-        margin-right: 18px
-        -webkit-border-radius: 50%
-        -moz-border-radius: 50%
-        border-radius: 50%
-        color: dodgerblue
-        background-color: lightskyblue
+        text-align center
+        vertical-align middle
+        display block
+        margin-top 6px
+        margin-right 18px
+        -webkit-border-radius 50%
+        -moz-border-radius 50%
+        border-radius 50%
+        color dodgerblue
+        background-color lightskyblue
 </style>
