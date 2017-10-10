@@ -11,29 +11,29 @@
                     <a v-if="person.phone" class="f4">{{person.phone[ 0 ].value}}</a>
                     <hr class="mt4 b--black-10"/>
                 </div>
-                <div id="content" class="ph4 w-100 b--black-20">
+                <div id="content" class="ph4 w-100 gray">
                     <div v-if="person.email.value" class="">
                         <div class="fl w-30 tr">
-                            <div class="b pv2 b--black-20">Email</div>
+                            <div class="b pv2 gray">Email</div>
                         </div>
                         <div class="fl w-70">
-                            <div class="pv2 pl3 gray">{{person.email.value}}</div>
+                            <div class="pv2 pl3 light-silver">{{person.email.value}}</div>
                         </div>
                     </div>
                     <div v-if="person.org_name" class="">
                         <div class="fl w-30 tr">
-                            <div class="b pv2 b--black-20">Organization</div>
+                            <div class="b pv2 gray">Organization</div>
                         </div>
                         <div class="fl w-70">
-                            <div class="pv2 pl3 gray">{{person.org_name}}</div>
+                            <div class="pv2 pl3 light-silver">{{person.org_name}}</div>
                         </div>
                     </div>
                     <div v-if="person.owner_name" class="">
                         <div class="fl w-30 tr">
-                            <div class="b pv2 b--black-20">Assistant</div>
+                            <div class="b pv2 gray">Assistant</div>
                         </div>
                         <div class="fl w-70">
-                            <div class="pv2 pl3 gray">{{person.owner_name}}</div>
+                            <div class="pv2 pl3 light-silver">{{person.owner_name}}</div>
                         </div>
                     </div>
                 </div>
