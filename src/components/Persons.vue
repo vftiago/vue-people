@@ -8,7 +8,7 @@
             <draggable :list="persons" class="dragArea list pl0 mt0">
                 <li v-for="person in persons" class="list-item pa2 ba b--black-10">
                     <a v-on:click="showModal( person )">
-                        <avatar :size="50" v-bind:username="person.name"></avatar>
+                        <avatar :size="50" :src="person.pictureUrl" :username="person.name"></avatar>
                         <div class="pl3">
                             <div class="f5 pt2 pb2">
                                 <span>{{person.name}}</span>
@@ -34,6 +34,9 @@
 	import Avatar from './Avatar.vue';
 	import PersonModal from './PersonModal.vue';
 	import Persons from '@/api/persons';
+	import transformers from '@/transformers/transformers';
+
+	console.warn(transformers)
 
 	export default {
 		name: 'persons',
@@ -41,7 +44,7 @@
 			persons: {
 				async get() {
 					const persons = await Persons.getAll();
-					return persons.data;
+					return transformers.personsTransformer( persons.data );
 				},
 				default: []
 			}

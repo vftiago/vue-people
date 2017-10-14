@@ -35,7 +35,8 @@
 				};
 
 				const imgBackgroundAndFontStyle = {
-					background: 'url(' + this.src + ') no-repeat',
+					background: 'url(' + this.src + ') no-repeat center center',
+					backgroundSize: this.size + 'px',
 					backgroundOrigin: 'content-box'
 				};
 
