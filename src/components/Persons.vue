@@ -36,8 +36,6 @@
 	import Persons from '@/api/persons';
 	import transformers from '@/transformers/transformers';
 
-	console.warn(transformers)
-
 	export default {
 		name: 'persons',
 		asyncComputed: {

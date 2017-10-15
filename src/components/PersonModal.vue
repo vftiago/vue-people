@@ -2,7 +2,8 @@
     <modal name="person-modal" :height="height" :width="500" v-on:before-open="beforeOpen">
         <div id="modal-content">
             <div id="modal-header" class="pa3 bb b--black-10">
-                <h4 class="f4 b ">Person Information</h4>
+                <div id="close" @click="$modal.hide('person-modal')"></div>
+                <h4 class="f4 b">Person Information</h4>
             </div>
             <div id="modal-body">
                 <div id="mast" class="b pa4">
@@ -80,6 +81,19 @@
     button
         background-color #fefefe
 
+    #modal-content
+        height 100%
+
+    #modal-header
+        background-color #efefef
+        #close
+            float right
+            height 20px
+            width 20px
+            background-image url( '../assets/close.png' )
+            background-repeat no-repeat center center
+            background-size 20px 20px
+
     #modal-body
         #mast
             text-align center
@@ -89,12 +103,6 @@
             width 60px
         #content
             text-align left
-
-    #modal-content
-        height 100%
-
-    #modal-header
-        background-color #efefef
 
     #modal-footer
         background-color #efefef

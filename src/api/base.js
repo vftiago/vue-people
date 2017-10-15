@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ApiConfig } from './config';
 
-let Client = axios.create( {
+const Client = axios.create( {
 	baseURL: ApiConfig.baseUrl,
 	headers: {
 		Accept: 'application/json'
