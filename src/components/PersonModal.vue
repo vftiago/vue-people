@@ -7,7 +7,7 @@
             </div>
             <div id="modal-body">
                 <div id="mast" class="b pa4">
-                    <avatar :size="100" v-bind:username="person.name"></avatar>
+                    <avatar :size="100" :src="person.pictureUrl" :username="person.name"></avatar>
                     <p v-if="person.name" class="f3 mt4 mb2">{{person.name}}</p>
                     <a v-if="person.phone" class="f4">{{person.phone[ 0 ].value}}</a>
                     <hr class="mt4 b--black-10"/>

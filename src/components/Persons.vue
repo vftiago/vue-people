@@ -48,7 +48,10 @@
 		methods: {
 			async fetchPersons(){
 				const persons = await Persons.getAll();
-				this.persons = persons.data;
+				this.persons = transformers.personsTransformer( persons.data );
+			},
+			showModal( person ) {
+				this.$modal.show( 'person-modal', { person: person } );
 			}
 		},
 		computed: {
