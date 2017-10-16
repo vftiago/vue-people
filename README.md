@@ -8,9 +8,9 @@ You will need to create a `config.js` file within `@/src/api` for the api to wor
 The file needs to have the following structure:
 
 ```
-let ApiConfig = {
+const ApiConfig = {
 	baseUrl: 'https://your-company-name.com/v1',
-	authToken: 'your-auth-token'
+	apiToken: 'your-auth-token'
 };
 
 export { ApiConfig };
