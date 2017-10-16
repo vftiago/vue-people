@@ -3,10 +3,11 @@
         <person-modal></person-modal>
         <div id="mast" class="f3 b bb b--black-10">
             <h2 class="ttc">People's List</h2>
+            <input type="text" v-model="searchKey">
         </div>
         <div id="content">
             <draggable :list="persons" class="dragArea list pl0 mt0">
-                <li v-for="person in persons" class="list-item pa2 ba b--black-10">
+                <li v-for="person in filteredPersons" class="list-item pa2 ba b--black-10">
                     <a v-on:click="showModal( person )">
                         <avatar :size="50" :src="person.pictureUrl" :username="person.name"></avatar>
                         <div class="pl3">
@@ -38,19 +39,26 @@
 
 	export default {
 		name: 'persons',
-		asyncComputed: {
-			persons: {
-				async get() {
-					const persons = await Persons.getAll();
-					return transformers.personsTransformer( persons.data );
-				},
-				default: []
+        data: function() {
+			return {
+				persons: [],
+				searchKey: ''
+            }
+        },
+		methods: {
+			async fetchPersons(){
+				const persons = await Persons.getAll();
+				this.persons = persons.data;
 			}
 		},
-		methods: {
-			showModal( person ) {
-				this.$modal.show( 'person-modal', { person: person } );
+		computed: {
+			filteredPersons(){
+				if ( this.searchKey.length === 0 ) return this.persons;
+                return this.persons.filter( ( person ) => person.name.toLowerCase().includes( this.searchKey.toLowerCase() ) );
 			}
+		},
+		created(){
+			this.fetchPersons();
 		},
 		components: {
 			Avatar,
