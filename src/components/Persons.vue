@@ -3,9 +3,10 @@
         <person-modal></person-modal>
         <div id="mast" class="f3 b bb b--black-10">
             <h2 class="ttc">People's List</h2>
-            <input type="text" v-model="searchKey">
         </div>
         <div id="content">
+            <input class="pa2 ba b--black-10" type="text" v-model="searchKey" placeholder="search by...">
+
             <draggable :list="persons" class="dragArea list pl0 mt0">
                 <li v-for="person in filteredPersons" class="list-item pa2 ba b--black-10">
                     <a v-on:click="showModal( person )">
@@ -72,6 +73,10 @@
 </script>
 
 <style scoped lang="stylus">
+    input
+        font-size 16px
+        margin 12px 15px
+
     #content
         text-align left
 

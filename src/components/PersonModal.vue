@@ -90,6 +90,7 @@
             float right
             height 20px
             width 20px
+            cursor pointer
             background-image url( '../assets/close.png' )
             background-repeat no-repeat center center
             background-size 20px 20px
